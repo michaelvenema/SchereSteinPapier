@@ -28,4 +28,8 @@ public class Spiel {
 	public int getAnzahlSpielzuege() {
 		return this.anzahlSpielZuege;
 	}
+
+	public void starteSpiel() {
+		this.anzahlSpielZuege = DEFAULT_ANZAHL_SPIELZUEGE;
+	}
 }

@@ -53,14 +53,14 @@ public class TesteSpiel {
 		softly.assertAll();
 	}
 	
-//	@Test
-//	public void starteSpielDefaultErwarteAnzahlSpielzuegeDefault() {
-//		SoftAssertions softly = new SoftAssertions();
-//		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-//		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
-//		Spiel spiel = new Spiel(spieler1, spieler2);
-//		spiel.starteSpiel();
-//		softly.assertThat(spiel)
-//		softly.assertAll();
-//	}
+	@Test
+	public void starteSpielDefaultErwarteAnzahlSpielzuegeDefault() {
+		SoftAssertions softly = new SoftAssertions();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spiel spiel = new Spiel(spieler1, spieler2);
+		spiel.starteSpiel();
+		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(Spiel.DEFAULT_ANZAHL_SPIELZUEGE);
+		softly.assertAll();
+	}
 }
