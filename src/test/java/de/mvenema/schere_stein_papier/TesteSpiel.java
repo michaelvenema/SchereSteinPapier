@@ -59,7 +59,7 @@ public class TesteSpiel {
 		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
 		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
 		Spiel spiel = new Spiel(spieler1, spieler2);
-		spiel.starteSpiel();
+		spiel.spieleSpiel();
 		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(Spiel.DEFAULT_ANZAHL_SPIELZUEGE);
 		softly.assertAll();
 	}
@@ -71,7 +71,7 @@ public class TesteSpiel {
 		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
 		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
 		Spiel spiel = new Spiel(spieler1, spieler2);
-		spiel.starteSpiel(anzahlSpielzuege);
+		spiel.spieleSpiel(anzahlSpielzuege);
 		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(anzahlSpielzuege);
 		softly.assertAll();
 	}

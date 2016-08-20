@@ -29,11 +29,11 @@ public class Spiel {
 		return this.anzahlSpielZuege;
 	}
 
-	public void starteSpiel() {
+	public void spieleSpiel() {
 		this.anzahlSpielZuege = DEFAULT_ANZAHL_SPIELZUEGE;
 	}
 
-	public void starteSpiel(final int p_anzahlSpielzuege) {
+	public void spieleSpiel(final int p_anzahlSpielzuege) {
 		this.anzahlSpielZuege = p_anzahlSpielzuege;		
 	}
 }
