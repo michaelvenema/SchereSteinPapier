@@ -26,4 +26,15 @@ public class TesteSpielzug {
 				.isInstanceOf(Spielzug.class);
 		softly.assertAll();
 	}
+	
+	@Test
+	public void testeHoleWuerfeErwarteSize2() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2));
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.getWuerfe()).size().isEqualTo(2);
+		softly.assertAll();
+	}
 }
