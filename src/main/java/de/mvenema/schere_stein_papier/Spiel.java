@@ -40,7 +40,7 @@ public class Spiel {
 
 	public ArrayList<Spielzug> getGespielteZuege() {
 		for (int i = 1; i <= this.anzahlSpielZuege; i++) {
-			this.spielZuege.add(new Spielzug());
+			this.spielZuege.add(new Spielzug(this.spielerList));
 		}
 		return this.spielZuege;
 	}
