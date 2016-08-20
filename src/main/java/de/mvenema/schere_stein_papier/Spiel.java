@@ -15,6 +15,7 @@ public class Spiel {
 	protected static final int DEFAULT_ANZAHL_SPIELZUEGE = 10;
 	private final ArrayList<Spieler> spielerList = new ArrayList<Spieler>();
 	private int anzahlSpielZuege = 0;
+	private ArrayList<Spielzug> spielZuege = new ArrayList<Spielzug>();
 	
 	public Spiel(final Spieler p_spieler1, final Spieler p_spieler2) {
 		this.spielerList.add(p_spieler1);
@@ -35,5 +36,12 @@ public class Spiel {
 
 	public void spieleSpiel(final int p_anzahlSpielzuege) {
 		this.anzahlSpielZuege = p_anzahlSpielzuege;		
+	}
+
+	public ArrayList<Spielzug> getGespielteZuege() {
+		for (int i = 1; i <= this.anzahlSpielZuege; i++) {
+			this.spielZuege.add(new Spielzug());
+		}
+		return this.spielZuege;
 	}
 }

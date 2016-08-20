@@ -75,4 +75,16 @@ public class TesteSpiel {
 		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(anzahlSpielzuege);
 		softly.assertAll();
 	}
+	
+	@Test
+	public void starteSpielErwarteAnzahlGespielterZuege() {
+		int anzahlSpielzuege = 100;
+		SoftAssertions softly = new SoftAssertions();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spiel spiel = new Spiel(spieler1, spieler2);
+		spiel.spieleSpiel(anzahlSpielzuege);
+		softly.assertThat(spiel.getGespielteZuege()).size().isEqualTo(anzahlSpielzuege);
+		softly.assertAll();
+	}
 }
