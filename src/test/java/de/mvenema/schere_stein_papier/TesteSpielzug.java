@@ -98,4 +98,83 @@ public class TesteSpielzug {
 		softly.assertThat(wuerfe.get(spieler2)).isInstanceOf(Spielzug.Symbol.class);
 		softly.assertAll();
 	}
+	
+	@Test
+	public void testeSchereGegenSchereErwarteUnentschieden() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerSchere());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieImmerSchere());
+		spielerList.add(spieler1);
+		spielerList.add(spieler2);
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.werIstSieger()).size().isEqualTo(0);
+		softly.assertAll();
+	}
+	
+	@Test
+	public void testeSchereGegenSteinErwarteNiederlage() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerSchere());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieImmerStein());
+		spielerList.add(spieler1);
+		spielerList.add(spieler2);
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.werIstSieger()).containsExactly(spieler2);
+		softly.assertAll();
+	}
+	
+	@Test
+	public void testeSchereGegenPapierErwarteSieg() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerSchere());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieImmerPapier());
+		spielerList.add(spieler1);
+		spielerList.add(spieler2);
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.werIstSieger()).containsExactly(spieler1);
+		softly.assertAll();
+	}
+	
+	@Test
+	public void testeSteinGegenSteinErwarteUnentschieden() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieImmerStein());
+		spielerList.add(spieler1);
+		spielerList.add(spieler2);
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.werIstSieger()).size().isEqualTo(0);
+		softly.assertAll();
+	}
+	
+	@Test
+	public void testeSteinGegenPapierErwarteNiederlage() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieImmerPapier());
+		spielerList.add(spieler1);
+		spielerList.add(spieler2);
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.werIstSieger()).containsExactly(spieler2);
+		softly.assertAll();
+	}
+	
+	@Test
+	public void testePapierGegenPapierErwarteUnentschieden() {
+		SoftAssertions softly = new SoftAssertions();
+		ArrayList<Spieler> spielerList = new ArrayList<>();
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerPapier());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieImmerPapier());
+		spielerList.add(spieler1);
+		spielerList.add(spieler2);
+		Spielzug spielzug = new Spielzug(spielerList);
+		softly.assertThat(spielzug.werIstSieger()).size().isEqualTo(0);
+		softly.assertAll();
+	}
+	
 }
