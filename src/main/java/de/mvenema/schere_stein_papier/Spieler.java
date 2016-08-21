@@ -31,4 +31,8 @@ public class Spieler {
 		return this.name;
 	}
 
+	public Spielzug.Symbol getWurf() {
+		return this.strategie.getNaechstenWurf();
+	}
+
 }
