@@ -22,8 +22,7 @@ public class Spielzug {
 	}
 
 	public HashMap<Spieler, Spielzug.Symbol> getWuerfe() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.spielzugMap;
 	}
 
 }
