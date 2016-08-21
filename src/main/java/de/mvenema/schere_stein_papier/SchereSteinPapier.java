@@ -6,8 +6,8 @@ public class SchereSteinPapier {
 
 	public static void main(String[] args) {
 		int anzahlSpielzuege = 100;
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
+		Spieler spieler1 = new Spieler("Jane Doe", new StrategieImmerStein());
+		Spieler spieler2 = new Spieler("John Doe", new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		spiel.spieleSpiel(anzahlSpielzuege);
 		Spielergebnis spielergebnis = spiel.getSpielergebnis();
