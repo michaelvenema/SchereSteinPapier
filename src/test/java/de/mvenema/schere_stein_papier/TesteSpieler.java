@@ -11,7 +11,7 @@ public class TesteSpieler {
 	@Test
 	public void testeInitSpielerErwarteInstanz() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler = new Spieler(NAME_SPIELER1);
+		Spieler spieler = new Spieler(NAME_SPIELER1, new StrategieImmerStein());
 		softly.assertThat(spieler).isNotNull();
 		softly.assertThat(spieler).isInstanceOf(Spieler.class);
 		softly.assertAll();
@@ -20,7 +20,7 @@ public class TesteSpieler {
 	@Test
 	public void testeInitSpielerErwarteName() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler = new Spieler(NAME_SPIELER1);
+		Spieler spieler = new Spieler(NAME_SPIELER1, new StrategieImmerStein());
 		softly.assertThat(spieler.getName()).isEqualTo(NAME_SPIELER1);
 		softly.assertAll();
 	}
@@ -28,8 +28,15 @@ public class TesteSpieler {
 	@Test
 	public void testeInitSpielerOhneNamenErwarteException() {
 		SoftAssertions softly = new SoftAssertions();
-		softly.assertThatThrownBy(() -> new Spieler("")).isInstanceOf(IllegalArgumentException.class);
-		softly.assertThatThrownBy(() -> new Spieler(null)).isInstanceOf(IllegalArgumentException.class);		
+		softly.assertThatThrownBy(() -> new Spieler("", new StrategieImmerStein())).isInstanceOf(IllegalArgumentException.class);
+		softly.assertThatThrownBy(() -> new Spieler(null, new StrategieImmerStein())).isInstanceOf(IllegalArgumentException.class);		
+		softly.assertAll();
+	}
+	
+	@Test
+	public void testeInitSpielerOhneStrategieErwarteException() {
+		SoftAssertions softly = new SoftAssertions();
+		softly.assertThatThrownBy(() -> new Spieler(NAME_SPIELER1, null)).isInstanceOf(IllegalArgumentException.class);
 		softly.assertAll();
 	}
 }

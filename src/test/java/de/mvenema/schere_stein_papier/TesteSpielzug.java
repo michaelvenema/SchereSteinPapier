@@ -20,8 +20,8 @@ public class TesteSpielzug {
 	public void testeInitEwarteInstanz() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein()));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall()));
 		softly.assertThat(new Spielzug(spielerList)).isInstanceOf(Spielzug.class);
 		softly.assertAll();
 	}
@@ -30,7 +30,7 @@ public class TesteSpielzug {
 	public void testeInitMit1SpielerErwarteException() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein()));
 		softly.assertThatThrownBy(() -> new Spielzug(spielerList)).isInstanceOf(IllegalArgumentException.class);
 		softly.assertAll();
 	}
@@ -39,9 +39,9 @@ public class TesteSpielzug {
 	public void testeInitMit3SpielerErwarteException() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2));
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein()));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall()));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein()));
 		softly.assertThatThrownBy(() -> new Spielzug(spielerList)).isInstanceOf(IllegalArgumentException.class);
 		softly.assertAll();
 	}
@@ -50,8 +50,8 @@ public class TesteSpielzug {
 	public void testeHoleWuerfeErwarteSize2() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein()));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall()));
 		Spielzug spielzug = new Spielzug(spielerList);
 		softly.assertThat(spielzug.getWuerfe()).size().isEqualTo(2);
 		softly.assertAll();
@@ -61,8 +61,8 @@ public class TesteSpielzug {
 	public void testeHoleWuerfeErwarteHashMap() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1));
-		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein()));
+		spielerList.add(new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall()));
 		Spielzug spielzug = new Spielzug(spielerList);
 		softly.assertThat(spielzug.getWuerfe()).isInstanceOf(HashMap.class);
 		softly.assertAll();
@@ -72,8 +72,8 @@ public class TesteSpielzug {
 	public void testeHoleWuerfeErwarteSpieler() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		spielerList.add(spieler1);
 		spielerList.add(spieler2);
 		Spielzug spielzug = new Spielzug(spielerList);
@@ -88,8 +88,8 @@ public class TesteSpielzug {
 	public void testeHoleWuerfeErwarteSymbole() {
 		SoftAssertions softly = new SoftAssertions();
 		ArrayList<Spieler> spielerList = new ArrayList<>();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		spielerList.add(spieler1);
 		spielerList.add(spieler2);
 		Spielzug spielzug = new Spielzug(spielerList);

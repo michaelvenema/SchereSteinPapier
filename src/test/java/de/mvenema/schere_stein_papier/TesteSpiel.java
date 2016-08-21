@@ -15,8 +15,8 @@ public class TesteSpiel {
 	@Test
 	public void testeInitSpielErwarteInstanz() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		softly.assertThat(spiel).isNotNull();
 		softly.assertThat(spiel).isInstanceOf(Spiel.class);
@@ -26,8 +26,8 @@ public class TesteSpiel {
 	@Test
 	public void testeInitSpielErwarteAnzahlSpieler2() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		softly.assertThat(spiel.getSpieler()).size().isEqualTo(2);
 		softly.assertAll();
@@ -36,8 +36,8 @@ public class TesteSpiel {
 	@Test
 	public void testeInitSpielErwarte2DefinierteSpieler() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		softly.assertThat(spiel.getSpieler()).containsExactly(spieler1, spieler2);
 		softly.assertAll();
@@ -46,8 +46,8 @@ public class TesteSpiel {
 	@Test
 	public void testeInitSpielErwarteAnzahlSpielzuege0() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(0);
 		softly.assertAll();
@@ -56,8 +56,8 @@ public class TesteSpiel {
 	@Test
 	public void starteSpielDefaultErwarteAnzahlSpielzuegeDefault() {
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		spiel.spieleSpiel();
 		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(Spiel.DEFAULT_ANZAHL_SPIELZUEGE);
@@ -68,8 +68,8 @@ public class TesteSpiel {
 	public void starteSpielErwarteAnzahlSpielzuege() {
 		int anzahlSpielzuege = 100;
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		spiel.spieleSpiel(anzahlSpielzuege);
 		softly.assertThat(spiel.getAnzahlSpielzuege()).isEqualTo(anzahlSpielzuege);
@@ -80,8 +80,8 @@ public class TesteSpiel {
 	public void starteSpielErwarteAnzahlGespielterZuege() {
 		int anzahlSpielzuege = 100;
 		SoftAssertions softly = new SoftAssertions();
-		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1);
-		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2);
+		Spieler spieler1 = new Spieler(TesteSpieler.NAME_SPIELER1, new StrategieImmerStein());
+		Spieler spieler2 = new Spieler(TesteSpieler.NAME_SPIELER2, new StrategieZufall());
 		Spiel spiel = new Spiel(spieler1, spieler2);
 		spiel.spieleSpiel(anzahlSpielzuege);
 		softly.assertThat(spiel.getGespielteZuege()).size().isEqualTo(anzahlSpielzuege);
