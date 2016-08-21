@@ -7,12 +7,27 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
+/**
+ * Stellt einen Spielzug innerhalb eines Spiels dar.
+ * @author michi
+ *
+ */
 public class Spielzug {
 
+	/**
+	 * Ergebnis. Wie kann es ausgehen?
+	 * @author michi
+	 *
+	 */
 	public enum Ergebnis {
 		SCHLAEGT, UNENTSCHIEDEN, WIRD_GESCHLAGEN;
 	}
 
+	/**
+	 * Die erlaubten Symbole.
+	 * @author michi
+	 *
+	 */
 	public enum Symbol {
 		SCHERE, STEIN, PAPIER;
 
@@ -43,9 +58,19 @@ public class Spielzug {
 		}
 	}
 
+	/**
+	 * Liste der Spieler.
+	 */
 	private final ArrayList<Spieler> spielerList;
+	/**
+	 * Alle Würfe des Spielzugs.
+	 */
 	private HashMap<Spieler, Spielzug.Symbol> spielzugMap = new HashMap<Spieler, Spielzug.Symbol>();
 
+	/**
+	 * Konstruktor.
+	 * @param p_spielerList Liste der Spieler
+	 */
 	public Spielzug(final ArrayList<Spieler> p_spielerList) {
 		if (p_spielerList != null && p_spielerList.size() == 2 && p_spielerList.get(0) != null
 				&& p_spielerList.get(1) != null) {
@@ -59,10 +84,18 @@ public class Spielzug {
 		}
 	}
 
+	/**
+	 * Liefert die Würfe des Spielzugs.
+	 * @return Würfe des Spielzugs
+	 */
 	public HashMap<Spieler, Spielzug.Symbol> getWuerfe() {
 		return this.spielzugMap;
 	}
 
+	/**
+	 * Wer hat diesen Spielzug gewonnen?
+	 * @return ArrayList mit dem Sieger ais einzigem Element oder ArrayList der Länge 0, wenn unentschieden
+	 */
 	public ArrayList<Spieler> werIstSieger() {
 		ArrayList<Spieler> result = new ArrayList<>();
 		Spieler spieler1 = this.spielerList.get(0);

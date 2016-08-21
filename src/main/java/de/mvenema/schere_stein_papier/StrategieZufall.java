@@ -8,6 +8,7 @@ import java.util.Random;
 import de.mvenema.schere_stein_papier.Spielzug.Symbol;
 
 /**
+ * Konkrete Implementierung für eine zufallsbasierte Strategie.
  * @author michi
  *
  */
