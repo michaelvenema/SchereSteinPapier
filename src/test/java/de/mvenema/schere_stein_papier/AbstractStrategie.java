@@ -8,5 +8,6 @@ package de.mvenema.schere_stein_papier;
  *
  */
 public abstract class AbstractStrategie {
-
+	
+	public abstract Spielzug.Symbol getNaechstenWurf();
 }
