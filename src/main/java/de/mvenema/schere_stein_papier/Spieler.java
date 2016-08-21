@@ -54,5 +54,13 @@ public class Spieler {
 	public Spielzug.Symbol getWurf() {
 		return this.strategie.getNaechstenWurf();
 	}
+	
+	/**
+	 * Liefert die Strategie.
+	 * @return die Strategie
+	 */
+	public AbstractStrategie getStrategie() {
+		return this.strategie;
+	}
 
 }
